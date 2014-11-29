@@ -4,24 +4,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 import org.atilika.kuromoji.Token;
 import org.atilika.kuromoji.Tokenizer;
 
 /**
  * 書字方向が横書の文章を縦書に変換する
  */
+@Setter @Getter
 public class VerticalWriting {
 
     // 改行コード
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
-    // 列セパレータ
-    private String COLUMN_SEPARATOR = "　";
-    // 文字セパレータ
-    private String CHAR_SEPARATOR = "";
     // 全角スペース
-    private String FULL_WIDTH_SPACE = "　";
+    private static String FULL_WIDTH_SPACE = "　";
     // 書字方向（列挙）
     private static enum writtenFormDirection {LTR, RTL}
+    // 列セパレータ
+    private String columnSeparator = "　";
+    // 文字セパレータ
+    private String charSeparator = "";
     // 書字方向
     private writtenFormDirection wfd = writtenFormDirection.RTL;
     
@@ -137,9 +140,9 @@ public class VerticalWriting {
                 } catch (StringIndexOutOfBoundsException e) {
                     sb.append("　");
                 }
-                sb.append(COLUMN_SEPARATOR);
+                sb.append(columnSeparator);
             }
-            sb.append(LINE_SEPARATOR).append(CHAR_SEPARATOR);
+            sb.append(LINE_SEPARATOR).append(charSeparator);
         }
         return sb.toString();
     }

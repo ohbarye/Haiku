@@ -6,14 +6,6 @@
 
 package haiku;
 
-import java.time.Clock;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import org.atilika.kuromoji.Tokenizer;
-import org.atilika.kuromoji.Token;
-
 /**
  *
  * @author ohbamasato
